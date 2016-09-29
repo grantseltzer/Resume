@@ -1,0 +1,149 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{1pt}{1pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr7]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Grant \textsc{Seltzer Richman}
+	}\par}
+
+\par{\centering
+    {131 Shrub Hollow Road, Roslyn, NY 11576}\\
+    {516-242-8776 - grantseltzer@gmail.com}\\
+    {github.com/grantseltzer}
+\par}
+
+%--------------------SECTIONS-----------------------------------
+\section{Professional Skills}
+\begin{tabular}{rl}
+ Proficient:& Go, C, Python, Java, Linux\\
+Familiar With:& Haskell, R, Bash, Javascript\\
+Miscellaneous:& Git, Docker, Vim, HTML, CSS, Sabermetrics\\
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{rp{11cm}}
+
+
+ \textsc{May 2016 -} & \textbf{Red Hat} - Software Engineer Intern \textit{(Container Security)} \\\emph{present}&\footnotesize{* Develop security enhancements for upstream software products that Red Hat supports, mostly related to containers such as Docker and Open Container Initiative software.}\\
+ &\footnotesize{* Created and continue to support a tool/library for generating seccomp configuration profiles. Collaborate with small in-office and international team of engineers.}\\
+ &\footnotesize{* Started as a summer intern but was asked to continue remotely throughout my final school year.}
+ \\\multicolumn{2}{c}{} \\
+ 
+  \textsc{Oct 2015 -} & \textbf{CommerceHub} - Software Engineer Intern 
+  \\\textsc{May 2016}
+ &\footnotesize{* Continued development on multiple Grails projects with small team of engineers.}\\
+ &\footnotesize{* Carried out feature implementations and bug fixes to teams code base. Lead an effort to implement the Clover code coverage tool into all of the teams projects.}\\
+ \multicolumn{2}{c}{} 
+
+\end{tabular}
+
+
+%Section: Education
+\section{Education}
+\begin{tabular}{rp{11cm}}
+ \textsc{May} 2017 & \textbf{B.S.} in \textbf{Computer Science and Applied Mathematics}  (\textit{major gpa}: 3.78)\\
+& \textsc{University at Albany, State University of New York}\\
+
+\textsc{President}& \textbf{Association for Computing Machinery (ACM)}\\
+&\footnotesize{* Organize and teach technical workshops on topics such as concurrency models, git, functional programming, or python data analysis.}\\
+&\footnotesize{* Raised over three thousand dollars for 3D printers and other maker equipment.}\\
+&\footnotesize{* Printed and assembled 3D printed prosthetic hands for children in need of them as part of the e-nable project.}\\
+\end{tabular}
+
+
+
+\section{Open Source Contributions}
+\begin{tabular}{rp{11cm}}
+
+\textsc{OpenContainers}& 
+\textit{An OCI project for generating container configuration files.} \\
+\textbf{Runtimetools}
+
+&\footnotesize{* Wrote internal library for configuring the seccomp portion of the configuration file}\\
+&\footnotesize{* Added flags to the cli to allow for very tight control of the seccomp options.}\\\\
+
+
+\textsc{Dropbox}& 
+\textit{A command line client for Dropbox built using the Go SDK} \\
+\textbf{Dbxcli}
+
+&\footnotesize{* Made many usability improvements for mirroring functionality of coreutil commands.}\\
+&\footnotesize{* Working with maintainers and other contributors on concurrency and performance improvements.}\\\\
+
+\textsc{UAlbany-ACM}& 
+\textit{A system for turning in programming assignments using containers} \\
+\textbf{ContainerTurnin}
+
+&\footnotesize{* Writing scripts for automating process of packaging student assignments into container images, sending them to instructors, and testing them on a grading system.}\\
+&\footnotesize{* Writing documentation and making a strong case to the computer science faculty for replacing the old and inconvenient turn-in system.}
+
+\end{tabular}
+
+\end{document}
+
