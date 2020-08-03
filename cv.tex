@@ -1,0 +1,180 @@
+\documentclass[a4paper,10pt]{article}
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by:
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{1pt}{1pt}
+%Tweak a bit the top margin
+% \addtolength{\voffset}{-cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr7]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Grant \textsc{Seltzer Richman}
+	}\par}
+
+\par{\centering
+    {516-242-8776 - grantseltzer@gmail.com}\\
+    {https://grant.pizza}
+\par}
+
+%--------------------SECTIONS-----------------------------------
+\section{Professional Skills}
+\begin{tabular}{rl}
+Love Working With:& Go, eBPF, Linux internals, Bash, Git, Security\\
+Experienced With:& gRPC, terraform, Python, C, Haskell \\ 
+Interested In:& Public Speaking, Anti-cheat software, Sabermetrics
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{rp{11cm}}
+
+% OSCAR
+ \textsc{Feb 2019 -} & \textbf{Oscar Health} - Software Engineer (Security)\\\emph{present}
+&\footnotesize{
+    * Wrote eBPF-based sensors for cloud centos servers to monitor security information and performance benchmarks.
+ }\\
+
+ 
+&\footnotesize{
+    * Led the roll-out of osquery to all Oscar workstations. Made multiple open source contributions to the upstream project to help with macos compatibility.
+}\\
+ 
+&\footnotesize{
+    * Created a system for efficient and performant security auditing of entire workstation fleet using osquery.
+}\\
+ 
+&\footnotesize{
+    * Created and actively run a company-wide monthly internal tech talk series.
+}\\
+
+ 
+&\footnotesize{
+    * Made a contribution to the Go language runtime fixing DNS resolution logic.
+}\\
+
+\\
+% CAPSULE8
+ \textsc{Mar 2017 -} & \textbf{Capsule8} - Software Engineer \\\emph{Feb 2019}
+ &\footnotesize{
+    * Collaborated on designing and implementing a highly scalable microservice system for linux endpoint protection written in Go.
+ }\\
+ 
+ &\footnotesize{
+    *  Built the command line interface for controlling all of the companies offerings in Go.
+ }\\
+ 
+  &\footnotesize{
+    * Conducted extensive research necessary for creating intrusion detections. Topics include seccomp, SELinux, apparmor, memory corruption, linux tracing, cgroups, and namespaces.
+ }\\
+ 
+ &\footnotesize{
+    * Implemented a comprehensive benchmarking pipeline for measuring macro and micro benchmarks of all of the companies systems over time.
+ }\\
+ 
+  &\footnotesize{
+    * Wrote extensive internal and external documentation for system design, architecture, debugging, and usage.
+ }\\
+ 
+ \multicolumn{2}{c}{} \\
+
+% RED HAT
+ \textsc{May 2016 -} & \textbf{Red Hat} - Software Engineer Intern \textit{(Container Security)} \\\emph{Feb 2017}
+ 
+ &\footnotesize{
+    * Developed security enhancements and feature implementations for container runtime/build tools used in OpenShift commercial offerings.
+}\\
+
+\end{tabular}
+
+%Section: Education
+\section{Education}
+\begin{tabular}{rp{11cm}}
+ \textsc{May} 2017 & \textbf{B.S.} in \textbf{Computer Science and Applied Mathematics}\\
+& \textsc{University at Albany, State University of New York}\\
+
+\end{tabular}
+
+%Section: Public Speaking
+\section{Conference Speaking}
+\begin{tabular}{rp{11cm}}
+2020 & \textbf{Gophercon} - Tracing Go Programs with eBPF\\
+2019 & \textbf{KubeSec, Hushcon Seatle} - The Problem with Sandboxing Solutions\\
+2017-20 & Kubernetes NYC, Docker NYC, NCC Open Forum, Hack \&\& Tell\\
+
+\end{tabular}
+
+%Section: Open Source
+\section{Open Source}
+\begin{tabular}{rp{11cm}}
+
+\textbf{Weaver} \textsc{Author} 
+&\footnotesize{
+    *  A dynamic debugging tool for fine-grained tracing of Go program execution using uprobes and eBPF.
+}\\
+
+\textbf{Karn} \textsc{Author}
+
+&\footnotesize{
+    * An intuitive set of high level entitlements that translate to Seccomp filters for containerized and non-containerized Linux applications.
+}\\
+
+\textbf{go-disass} \textsc{Author} 
+&\footnotesize{
+    * A fully functioning disassembler, and  a tool for finding ROP gadgets.
+}\\
+
+\textbf{Go} \textsc{Contributor}
+
+&\footnotesize{
+    * Added support for using libSystem bindings for DNS resolution when compiling static binaries on Darwin hosts.
+}\\
+
+\end{tabular}
+
+\end{document}
+
